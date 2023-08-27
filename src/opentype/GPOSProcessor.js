@@ -175,6 +175,9 @@ export default class GPOSProcessor extends OTProcessor {
 
         let markRecord = table.markArray[markIndex];
         let baseAnchor = table.baseArray[baseIndex][markRecord.class];
+        if(baseAnchor == null){
+          return false;
+        }
         this.applyAnchor(markRecord, baseAnchor, baseGlyphIndex);
         return true;
       }
