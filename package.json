@@ -1,6 +1,6 @@
 {
   "name": "pdflib-fontkit",
-  "version": "1.8.10",
+  "version": "1.8.11",
   "description": "An advanced font engine for Node and the browser",
   "main": "dist/fontkit.umd.js",
   "unpkg": "dist/fontkit.umd.min.js",

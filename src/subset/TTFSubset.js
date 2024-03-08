@@ -1,7 +1,6 @@
 import cloneDeep from 'clone';
 import Subset from './Subset';
 import Directory from '../tables/directory';
-import Tables from '../tables';
 import TTFGlyphEncoder from '../glyph/TTFGlyphEncoder';
 
 export default class TTFSubset extends Subset {
@@ -12,6 +11,12 @@ export default class TTFSubset extends Subset {
   
   _addGlyph(gid) {
     let glyph = this.font.getGlyph(gid);
+
+    // Avoid glyph._decode undefined issue
+    if (glyph == null || glyph._decode == null) {
+      return this.glyf.length - 1;
+    }
+
     let glyf = glyph._decode();
 
     // get the offset to the glyph from the loca table
